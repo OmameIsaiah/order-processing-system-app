@@ -1,0 +1,27 @@
+.products-container {
+    padding: 20px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.add-product-button {
+    margin-left: auto;
+    /* Aligns the button to the right */
+}
+
+table {
+    width: 100%;
+}
+
+.mat-elevation-z8 {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.spinner {
+    margin: 20px auto;
+}

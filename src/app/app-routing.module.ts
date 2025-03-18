@@ -9,6 +9,7 @@ import { OrdersComponent } from './orders/orders.component';
 import { UsersManagementComponent } from './users-management/users-management.component';
 import { AccountProfileComponent } from './account-profile/account-profile.component';
 import { AccountSettingsComponent } from './account-settings/account-settings.component';
+import { AuthGuard } from './guards/auth.guard'; // Import the AuthGuard
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' }, // Redirect to login by default
@@ -18,6 +19,7 @@ const routes: Routes = [
   {
     path: 'dashboard',
     component: DashboardComponent,
+    canActivate: [AuthGuard], // Apply the AuthGuard
     children: [
       { path: 'products', component: ProductsComponent },
       { path: 'orders', component: OrdersComponent },

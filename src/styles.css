@@ -1,16 +1,14 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
 /* General Styles */
 body {
     font-family: 'Arial', sans-serif;
     background-color: #f4f4f9;
     margin: 0;
     padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     height: 100vh;
 }
 
-/* Container Styles */
+/* Container Styles for Login, Signup, and OTP */
 .signup-container,
 .otp-container,
 .login-container {
@@ -21,6 +19,8 @@ body {
     width: 100%;
     max-width: 400px;
     text-align: center;
+    margin: 0 auto;
+    /* Center these containers */
 }
 
 h2 {
@@ -109,3 +109,5 @@ button.resend {
 button.resend:hover {
     background-color: #218838;
 }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

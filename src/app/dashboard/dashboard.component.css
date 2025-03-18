@@ -1,0 +1,161 @@
+/* General Styles */
+.dashboard-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+/* Top Navigation Bar */
+.top-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #2c3e50;
+  color: white;
+  padding: 10px 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 100%;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.logo img {
+  height: 40px;
+  margin-right: 10px;
+}
+
+.logo span {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.profile-menu {
+  position: relative;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.profile-pic {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.material-icons {
+  font-size: 24px;
+}
+
+.dropdown {
+  position: absolute;
+  top: 50px;
+  right: 0;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.dropdown ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.dropdown li {
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.dropdown li:hover {
+  background-color: #f5f5f5;
+}
+
+.dropdown a {
+  color: #333;
+  text-decoration: none;
+}
+
+/* Sidebar and Main Content */
+.main-content {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 250px;
+  background-color: #34495e;
+  color: white;
+  box-shadow: 2px 0 4px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex: 1; /* Allow the menu items to take up remaining space */
+}
+
+.sidebar li {
+  padding: 15px 20px;
+  cursor: pointer;
+}
+
+.sidebar li:hover {
+  background-color: #2c3e50;
+}
+
+.sidebar a {
+  color: white;
+  text-decoration: none;
+  display: block;
+}
+
+.sidebar a.active {
+  background-color: #1abc9c;
+}
+
+/* Logout Container */
+.logout-container {
+  padding: 15px 20px;
+  border-top: 1px solid #2c3e50; /* Add a separator line */
+  background-color: #34495e;
+}
+
+.logout-link {
+  display: flex;
+  align-items: center;
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.logout-link:hover {
+  color: #1abc9c; /* Change color on hover */
+}
+
+.logout-link .material-icons {
+  margin-right: 10px;
+}
+
+/* Main Content */
+.content {
+  flex: 1;
+  padding: 20px;
+  background-color: #f5f5f5;
+  overflow-y: auto;
+}
