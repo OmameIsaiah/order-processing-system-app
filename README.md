@@ -1,4 +1,5 @@
-# OrderProcessingSystemApp
+# order-processing-system-app
+Frontend App for Order Processing System API: https://github.com/OmameIsaiah/order-processing-system
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.0.
 
