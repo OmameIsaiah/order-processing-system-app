@@ -1,0 +1,9 @@
+<div class="notification-container">
+    <div *ngFor="let notification of notifications" class="notification" [ngClass]="{
+        'success': notification.type === 'success',
+        'error': notification.type === 'error'
+      }">
+        <span>{{ notification.message }}</span>
+        <button (click)="closeNotification(notification.id)">×</button>
+    </div>
+</div>
