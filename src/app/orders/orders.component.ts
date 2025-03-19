@@ -5,6 +5,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { ConfirmDeleteOrderModalComponent } from '../components/orders/confirm-delete-order-modal/confirm-delete-order-modal.component';
 import { ConfirmCancelOrderModalComponent } from '../components/orders/confirm-cancel-order-modal/confirm-cancel-order-modal.component';
 import { ViewOrderModalComponent } from '../components/orders/view-order-modal/view-order-modal.component';
+import { ConfigService } from '../services/config.service';
 
 @Component({
   selector: 'app-orders',
@@ -20,6 +21,7 @@ export class OrdersComponent implements OnInit {
 
   constructor(
     private http: HttpClient,
+    private configService: ConfigService,
     private notificationService: NotificationService,
     private dialog: MatDialog
   ) {}
@@ -34,7 +36,7 @@ export class OrdersComponent implements OnInit {
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
 
     this.http
-      .get(`http://localhost:2003/order-service/api/v1/orders?page=${this.currentPage}&size=${this.pageSize}`, { headers })
+      .get(`${this.configService.ORDER_SERVICE_BASE_URL}/orders?page=${this.currentPage}&size=${this.pageSize}`, { headers })
       .subscribe(
         (response: any) => {
           this.orders = response.data;
