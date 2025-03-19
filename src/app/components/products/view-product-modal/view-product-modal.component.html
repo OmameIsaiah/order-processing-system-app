@@ -1,0 +1,10 @@
+<h2 mat-dialog-title>Product Details</h2>
+<mat-dialog-content>
+    <p><strong>UUID:</strong> {{ product?.uuid }}</p>
+    <p><strong>Name:</strong> {{ product?.name }}</p>
+    <p><strong>Quantity:</strong> {{ product?.quantity }}</p>
+    <p><strong>Unit Price:</strong> {{ product?.unitPrice | currency }}</p>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button (click)="onClose()">Close</button>
+</mat-dialog-actions>
