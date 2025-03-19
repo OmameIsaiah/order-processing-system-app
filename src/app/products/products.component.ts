@@ -7,6 +7,7 @@ import { EditProductModalComponent } from '../components/products/edit-product-m
 import { ConfirmDeleteModalComponent } from '../components/products/confirm-delete-modal/confirm-delete-modal.component';
 import { ViewProductModalComponent } from '../components/products/view-product-modal/view-product-modal.component';
 import { OrderProductModalComponent } from '../components/products/order-product-modal/order-product-modal.component'; 
+import { ConfigService } from '../services/config.service';
 
 @Component({
   selector: 'app-products',
@@ -19,6 +20,7 @@ export class ProductsComponent implements OnInit {
 
   constructor(
     private http: HttpClient,
+    private configService: ConfigService,
     private notificationService: NotificationService,
     private dialog: MatDialog
   ) { }
@@ -33,7 +35,7 @@ export class ProductsComponent implements OnInit {
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
 
     this.http
-      .get('http://localhost:2003/order-service/api/v1/products?page=0&size=50', { headers })
+      .get(`${this.configService.ORDER_SERVICE_BASE_URL}/products?page=0&size=50`, { headers })
       .subscribe(
         (response: any) => {
           this.products = response.data;
