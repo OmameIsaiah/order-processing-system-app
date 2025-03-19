@@ -12,16 +12,31 @@
     color: white;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     animation: fadeIn 0.5s;
+    position: relative;
+    max-width: 400px;
+    /* Increased width */
+    width: 100%;
 }
 
-.notification.success {
-    background-color: #28a745;
+.notification-content {
+    flex: 1;
+    /* Takes up remaining space */
+    margin-right: 20px;
+    /* Space between text and close button */
+    word-wrap: break-word;
+    white-space: normal;
 }
 
-.notification.error {
-    background-color: #dc3545;
+.close-button-container {
+    display: flex;
+    align-items: flex-start;
+    /* Align button to the top */
+    justify-content: flex-end;
+    /* Align button to the right */
+    width: auto;
+    /* Let the button take its natural width */
 }
 
 .notification button {
@@ -30,6 +45,18 @@
     color: white;
     font-size: 20px;
     cursor: pointer;
+    padding: 0;
+    margin: 0;
+    line-height: 1;
+    /* Ensure the × symbol is aligned properly */
+}
+
+.notification.success {
+    background-color: #28a745;
+}
+
+.notification.error {
+    background-color: #dc3545;
 }
 
 @keyframes fadeIn {
