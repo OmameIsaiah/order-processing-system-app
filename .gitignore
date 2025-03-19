@@ -43,3 +43,5 @@ rad.json
 #Test results file
 TestResults.xml
 node_modules
+
+.angular/cache/
