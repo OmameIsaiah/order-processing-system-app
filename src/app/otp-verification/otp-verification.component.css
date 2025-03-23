@@ -1,0 +1,68 @@
+.otp-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.form-group input {
+    width: 95%;
+    /* Reduce the width of the input field */
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin: 0 auto;
+    /* Center the input field */
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 30px;
+    /* Add more space between the input field and buttons */
+}
+
+.button-container button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.button-container button[type="submit"] {
+    background-color: #007bff;
+    color: white;
+}
+
+.button-container button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+.button-container button[type="button"] {
+    background-color: #6c757d;
+    color: white;
+}
+
+.button-container button[type="button"]:hover {
+    background-color: #5a6268;
+}
+
+.resend-timer {
+    color: #6c757d;
+    font-size: 14px;
+}

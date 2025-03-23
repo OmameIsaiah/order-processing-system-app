@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialog } from '@angular/material/dialog';
 import { AddRoleDialogComponent } from '../components/settings/add-role-dialog/add-role-dialog.component';
 import { EditRoleDialogComponent } from '../components/settings/edit-role-dialog/edit-role-dialog.component';
@@ -46,7 +45,6 @@ export class AccountSettingsComponent implements OnInit {
     private http: HttpClient,
     private configService: ConfigService,
     private notificationService: NotificationService,
-    private snackBar: MatSnackBar,
     private dialog: MatDialog) { }
 
   ngOnInit() {
@@ -138,7 +136,7 @@ export class AccountSettingsComponent implements OnInit {
         error: (error) => {
           this.isLoading = false;
           this.notificationService.showNotification(
-            error.error.message || 'Oops! Failed to add role',
+            error.error.message || 'Oops! Failed to add role.',
             'error'
           );
           //this.snackBar.open(error.error.message || 'Failed to add role', 'Close', { duration: 3000 });
@@ -162,14 +160,29 @@ export class AccountSettingsComponent implements OnInit {
 
   // Edit a role
   editRole(role: any) {
-    this.http.put(`${this.configService.ACCOUNT_SERVICE_MANAGEMENT_BASE_URL}/roles`, role)
+    // Prepare the request body with the correct property names
+    const requestBody = {
+      uuid: role.uuid, // Ensure the UUID is included
+      roleName: role.name, // Rename 'name' to 'roleName'
+      description: role.description,
+      permissions: role.permissions
+    };
+  
+    // Make the PUT request
+    this.http.put(`${this.configService.ACCOUNT_SERVICE_MANAGEMENT_BASE_URL}/roles`, requestBody)
       .subscribe({
         next: (response: any) => {
-          this.snackBar.open(response.message, 'Close', { duration: 3000 });
+          this.notificationService.showNotification(
+            response.message || 'Awesome! Role updated successfully!',
+            'success'
+          );
           this.fetchRoles(); // Refresh the roles list
         },
         error: (error) => {
-          this.snackBar.open(error.error.message || 'Failed to edit role', 'Close', { duration: 3000 });
+          this.notificationService.showNotification(
+            error.error.message || 'Oops! Failed to update role. Please try again.',
+            'error'
+          );
         }
       });
   }
@@ -193,11 +206,17 @@ export class AccountSettingsComponent implements OnInit {
     this.http.delete(`${this.configService.ACCOUNT_SERVICE_MANAGEMENT_BASE_URL}/roles/${roleId}`)
       .subscribe({
         next: (response: any) => {
-          this.snackBar.open(response.message, 'Close', { duration: 3000 });
+          this.notificationService.showNotification(
+            response.message || 'Awesome! Role deleted successfully!',
+            'success'
+          );
           this.fetchRoles(); // Refresh the roles list
         },
         error: (error) => {
-          this.snackBar.open(error.error.message || 'Failed to delete role', 'Close', { duration: 3000 });
+          this.notificationService.showNotification(
+            error.error.message || 'Oops! Failed to delete role.',
+            'error'
+          );
         }
       });
   }
