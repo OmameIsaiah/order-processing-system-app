@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { NotificationService } from '../services/notification.service';
 import { MatDialog } from '@angular/material/dialog';
 import { AddProductModalComponent } from '../components/products/add-product-modal/add-product-modal.component';
 import { EditProductModalComponent } from '../components/products/edit-product-modal/edit-product-modal.component';
@@ -8,6 +7,7 @@ import { ConfirmDeleteModalComponent } from '../components/products/confirm-dele
 import { ViewProductModalComponent } from '../components/products/view-product-modal/view-product-modal.component';
 import { OrderProductModalComponent } from '../components/products/order-product-modal/order-product-modal.component'; 
 import { ConfigService } from '../services/config.service';
+import { NotificationService } from '../services/notification.service';
 
 @Component({
   selector: 'app-products',

@@ -1,6 +1,7 @@
 import { Component, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { ConfigService } from '../../../services/config.service';
 import { NotificationService } from '../../../services/notification.service';
 
 @Component({
@@ -15,10 +16,11 @@ export class OrderProductModalComponent {
 
   constructor(
     private http: HttpClient,
+    private configService: ConfigService,
     private notificationService: NotificationService,
     public dialogRef: MatDialogRef<OrderProductModalComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
-  ) {}
+  ) { }
 
   onOrder(): void {
     const token = localStorage.getItem('token');
@@ -30,7 +32,7 @@ export class OrderProductModalComponent {
     };
 
     this.http
-      .post('http://localhost:2003/order-service/api/v1/order', payload, { headers })
+      .post(`${this.configService.ORDER_SERVICE_BASE_URL}/order`, payload, { headers })
       .subscribe(
         (response: any) => {
           this.notificationService.showNotification('Order placed successfully', 'success');
@@ -55,7 +57,7 @@ export class OrderProductModalComponent {
     };
 
     this.http
-      .post('http://localhost:2003/order-service/api/v1/order/confirm', payload, { headers })
+      .post(`${this.configService.ORDER_SERVICE_BASE_URL}/order/confirm`, payload, { headers })
       .subscribe(
         (response: any) => {
           this.notificationService.showNotification('Order confirmed successfully', 'success');
@@ -79,7 +81,7 @@ export class OrderProductModalComponent {
     };
 
     this.http
-      .post('http://localhost:2003/order-service/api/v1/order/cancel', payload, { headers })
+      .post(`${this.configService.ORDER_SERVICE_BASE_URL}/order/cancel`, payload, { headers })
       .subscribe(
         (response: any) => {
           this.notificationService.showNotification('Order canceled successfully', 'success');

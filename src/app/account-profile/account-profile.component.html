@@ -1,1 +1,58 @@
-<p>account-profile works!</p>
+<div class="profile-container">
+    <h2>User Profile</h2>
+
+    <div *ngIf="userProfile" class="profile-content">
+        <div class="left-column">
+            <div class="profile-field">
+                <label>UUID:</label>
+                <span>{{ userProfile.uuid }}</span>
+            </div>
+
+            <div class="profile-field">
+                <label>Name:</label>
+                <span *ngIf="!isEditingName">{{ userProfile.name }}</span>
+                <input *ngIf="isEditingName" type="text" [(ngModel)]="updatedName" placeholder="Enter your name" />
+                <button mat-icon-button (click)="toggleEditName()">
+                    <mat-icon>{{ isEditingName ? 'close' : 'edit' }}</mat-icon>
+                </button>
+            </div>
+
+            <div class="profile-field">
+                <label>Email:</label>
+                <span>{{ userProfile.email }}</span>
+            </div>
+
+            <div class="profile-field">
+                <label>Last Login:</label>
+                <span>{{ userProfile.lastLogin }}</span>
+            </div>
+        </div>
+
+        <div class="right-column">
+            <div class="profile-field">
+                <label>User Type:</label>
+                <span>{{ userProfile.userType }}</span>
+            </div>
+
+            <div class="profile-field">
+                <label>Roles:</label>
+                <span>{{ userProfile.roles.join(', ') }}</span>
+            </div>
+
+            <div class="profile-field">
+                <label>Permissions:</label>
+                <span>{{ userProfile.permissions.join(', ') }}</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="update-button">
+        <button mat-raised-button color="primary" (click)="onUpdateProfile()" [disabled]="!isEditingName">
+            Update Profile
+        </button>
+    </div>
+
+    <div *ngIf="!userProfile" class="loading">
+        <mat-spinner></mat-spinner>
+    </div>
+</div>

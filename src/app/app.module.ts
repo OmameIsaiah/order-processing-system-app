@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms'; 
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatSelectModule } from '@angular/material/select';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -36,6 +39,12 @@ import { OrderProductModalComponent } from './components/products/order-product-
 
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { RoleDetailsDialogComponent } from './components/settings/role-details-dialog/role-details-dialog.component';
+import { AddRoleDialogComponent } from './components/settings/add-role-dialog/add-role-dialog.component';
+import { EditRoleDialogComponent } from './components/settings/edit-role-dialog/edit-role-dialog.component';
+import { DeleteRoleDialogComponent } from './components/settings/delete-role-dialog/delete-role-dialog.component';
+import { DeleteUserDialogComponent } from './components/user-management/delete-user-dialog/delete-user-dialog.component';
+import { UserDetailsDialogComponent } from './components/user-management/user-details-dialog/user-details-dialog.component';
 
 @NgModule({
   declarations: [
@@ -58,6 +67,12 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
     ConfirmCancelOrderModalComponent,
     ViewOrderModalComponent,
     OrderProductModalComponent,
+    RoleDetailsDialogComponent,
+    AddRoleDialogComponent,
+    EditRoleDialogComponent,
+    DeleteRoleDialogComponent,
+    DeleteUserDialogComponent,
+    UserDetailsDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -74,6 +89,11 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
     MatInputModule,
     MatFormFieldModule,
     MatPaginatorModule, 
+     // Other modules
+     MatTabsModule,
+     MatSelectModule,
+     MatSnackBarModule,
+     FormsModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },

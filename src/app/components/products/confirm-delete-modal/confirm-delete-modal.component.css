@@ -1,0 +1,12 @@
+/* Align buttons on the same line with Delete on the left and Cancel on the right */
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    /* Space between Delete and Cancel */
+    align-items: center;
+    /* Vertically center buttons */
+    width: 100%;
+    /* Ensure the container takes full width */
+    padding: 16px 24px;
+    /* Match Material dialog padding */
+}

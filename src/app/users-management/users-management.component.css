@@ -1,0 +1,23 @@
+.users-management-container {
+    padding: 20px;
+}
+
+.search-filter-section {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+mat-form-field {
+    width: 300px;
+}
+
+.table-container {
+    overflow-x: auto;
+}
+
+.loading-spinner {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}

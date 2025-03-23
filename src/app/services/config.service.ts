@@ -12,6 +12,7 @@ export class ConfigService {
    // Use environment variables
   readonly ORDER_SERVICE_BASE_URL = environment.ORDER_SERVICE_BASE_URL;
   readonly ACCOUNT_SERVICE_BASE_URL = environment.ACCOUNT_SERVICE_BASE_URL;
+  readonly ACCOUNT_SERVICE_MANAGEMENT_BASE_URL = environment.ACCOUNT_SERVICE_MANAGEMENT_BASE_URL;
  
   constructor() {}
 }

@@ -1,0 +1,17 @@
+/* Ensure form fields take full width of the modal */
+.full-width {
+    width: 100%;
+}
+
+/* Align buttons on the same line with Order/Pay/Confirm on the left and Cancel/Cancel Order on the right */
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    /* Space between left and right buttons */
+    align-items: center;
+    /* Vertically center buttons */
+    width: 100%;
+    /* Ensure the container takes full width */
+    padding: 16px 24px;
+    /* Match Material dialog padding */
+}

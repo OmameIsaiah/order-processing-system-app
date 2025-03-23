@@ -1,6 +1,7 @@
 import { Component, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { ConfigService } from '../../../services/config.service';
 import { NotificationService } from '../../../services/notification.service';
 
 @Component({
@@ -13,6 +14,7 @@ export class EditProductModalComponent {
 
   constructor(
     private http: HttpClient,
+    private configService: ConfigService,
     private notificationService: NotificationService,
     public dialogRef: MatDialogRef<EditProductModalComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
@@ -33,7 +35,7 @@ export class EditProductModalComponent {
     };
 
     this.http
-      .put('http://localhost:2003/order-service/api/v1/product', payload, { headers })
+      .put(`${this.configService.ORDER_SERVICE_BASE_URL}/product`, payload, { headers })
       .subscribe(
         (response: any) => {
           this.notificationService.showNotification('Product updated successfully', 'success');

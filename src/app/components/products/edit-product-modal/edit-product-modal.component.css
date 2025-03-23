@@ -1,0 +1,13 @@
+/* Ensure form fields take full width of the modal */
+.full-width {
+    width: 100%;
+}
+
+/* Align buttons on the same line with Update on the left and Cancel on the right */
+.button-container {
+    display: flex;
+    justify-content: space-between; /* Space between Update and Cancel */
+    align-items: center; /* Vertically center buttons */
+    width: 100%; /* Ensure the container takes full width */
+    padding: 16px 24px; /* Match Material dialog padding */
+}

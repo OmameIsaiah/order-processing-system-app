@@ -1,0 +1,61 @@
+.profile-container {
+    padding: 20px;
+    max-width: 800px;
+    /* Increased max-width to accommodate two columns */
+    margin: 0 auto;
+}
+
+.profile-content {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    /* Adds space between the two columns */
+}
+
+.left-column,
+.right-column {
+    flex: 1;
+    /* Ensures both columns take equal width */
+}
+
+.left-column {
+    text-align: left;
+    /* Aligns content to the left */
+}
+
+.right-column {
+    text-align: right;
+    /* Aligns content to the right */
+}
+
+.profile-field {
+    margin-bottom: 15px;
+}
+
+.profile-field label {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.profile-field input {
+    padding: 5px;
+    font-size: 16px;
+    width: 200px;
+}
+
+button[mat-icon-button] {
+    margin-left: 10px;
+}
+
+.loading {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.update-button {
+    display: flex;
+    justify-content: center;
+    /* Centers the button at the bottom */
+    margin-top: 20px;
+}

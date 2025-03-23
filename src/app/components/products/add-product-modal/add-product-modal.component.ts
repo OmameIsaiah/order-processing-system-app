@@ -1,6 +1,7 @@
 import { Component, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { ConfigService } from '../../../services/config.service';
 import { NotificationService } from '../../../services/notification.service';
 
 @Component({
@@ -17,6 +18,7 @@ export class AddProductModalComponent {
 
   constructor(
     private http: HttpClient,
+    private configService: ConfigService,
     private notificationService: NotificationService,
     public dialogRef: MatDialogRef<AddProductModalComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
@@ -27,7 +29,7 @@ export class AddProductModalComponent {
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
 
     this.http
-      .post('http://localhost:2003/order-service/api/v1/product', this.product, { headers })
+      .post(`${this.configService.ORDER_SERVICE_BASE_URL}/product`, this.product, { headers })
       .subscribe(
         (response: any) => {
           this.notificationService.showNotification('Product added successfully', 'success');
